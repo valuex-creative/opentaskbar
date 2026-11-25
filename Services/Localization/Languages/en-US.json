@@ -72,6 +72,8 @@
   "AnimationsDescription": "Launch, hide, and transition motion.",
   "Previews": "Window previews",
   "PreviewsDescription": "Show open windows when you hover over an icon.",
+  "WindowPicker": "Choose a window on click",
+  "WindowPickerDescription": "When an app has several windows, clicking its icon shows them so you can pick one instead of switching to the most recent.",
   "HardwareAcceleration": "Hardware acceleration",
   "HardwareAccelerationDescription": "Smoother animations; uses about 100 MB more memory. Restart the dock to apply.",
   "Badges": "Notification indicators",

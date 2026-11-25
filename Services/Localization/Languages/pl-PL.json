@@ -69,6 +69,8 @@
   "AnimationsDescription": "Włącz płynne animacje doku i paneli wysuwanych.",
   "Previews": "Podglądy okien",
   "PreviewsDescription": "Pokazuj miniatury okien po najechaniu kursorem na ikonę aplikacji.",
+  "WindowPicker": "Wybierz okno po kliknięciu",
+  "WindowPickerDescription": "Gdy aplikacja ma kilka okien, kliknięcie ikony pokazuje je do wyboru zamiast przełączać na ostatnie.",
   "Badges": "Plakietki powiadomień",
   "BadgesDescription": "Wyświetlaj plakietki na aplikacjach z nieprzeczytanymi powiadomieniami.",
   "Theme": "Motyw",

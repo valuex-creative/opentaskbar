@@ -69,6 +69,8 @@
   "AnimationsDescription": "Activer des transitions fluides pour le dock et les volets.",
   "Previews": "Aperçus des fenêtres",
   "PreviewsDescription": "Afficher des miniatures en survolant les applications ouvertes.",
+  "WindowPicker": "Choisir une fenêtre au clic",
+  "WindowPickerDescription": "Quand une application a plusieurs fenêtres, un clic sur son icône les affiche pour en choisir une au lieu de passer à la plus récente.",
   "Badges": "Pastilles de notification",
   "BadgesDescription": "Indiquer les applications qui ont des alertes non lues.",
   "Theme": "Thème",

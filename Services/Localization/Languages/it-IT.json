@@ -69,6 +69,8 @@
   "AnimationsDescription": "Abilita transizioni fluide per il dock e i menu a comparsa.",
   "Previews": "Anteprime finestre",
   "PreviewsDescription": "Mostra anteprime al passaggio del mouse sulle icone delle app aperte.",
+  "WindowPicker": "Scegli una finestra al clic",
+  "WindowPickerDescription": "Se un'app ha più finestre, il clic sulla sua icona le mostra per sceglierne una invece di passare alla più recente.",
   "Badges": "Badge di notifica",
   "BadgesDescription": "Mostra un indicatore sulle app con notifiche non lette.",
   "Theme": "Tema",

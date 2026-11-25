@@ -69,6 +69,8 @@
   "AnimationsDescription": "为程序坞及浮窗启用平滑过渡动画。",
   "Previews": "窗口预览",
   "PreviewsDescription": "鼠标悬停在应用图标上时显示窗口缩略图。",
+  "WindowPicker": "单击时选择窗口",
+  "WindowPickerDescription": "应用有多个窗口时，单击图标会显示所有窗口供你选择，而不是切换到最近使用的窗口。",
   "Badges": "通知角标",
   "BadgesDescription": "在有未读通知的应用图标上显示提示标记。",
   "Theme": "主题",

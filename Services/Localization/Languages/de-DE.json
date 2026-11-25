@@ -69,6 +69,8 @@
   "AnimationsDescription": "Flüssige Übergänge für Dock und Flyouts aktivieren.",
   "Previews": "Fenstervorschauen",
   "PreviewsDescription": "Miniaturansichten beim Bewegen der Maus über App-Symbole anzeigen.",
+  "WindowPicker": "Fenster beim Klicken auswählen",
+  "WindowPickerDescription": "Hat eine App mehrere Fenster, zeigt ein Klick auf ihr Symbol alle an, statt zum zuletzt verwendeten zu wechseln.",
   "Badges": "Benachrichtigungspunkte",
   "BadgesDescription": "Hinweis anzeigen, wenn Apps ungelesene Benachrichtigungen haben.",
   "Theme": "Design",

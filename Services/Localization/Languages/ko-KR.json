@@ -69,6 +69,8 @@
   "AnimationsDescription": "독 및 플라이아웃에 부드러운 전환 효과를 활성화합니다.",
   "Previews": "창 미리 보기",
   "PreviewsDescription": "실행 중인 앱 아이콘에 마우스를 올릴 때 미리 보기 축소판을 표시합니다.",
+  "WindowPicker": "클릭 시 창 선택",
+  "WindowPickerDescription": "앱에 창이 여러 개 있으면 아이콘을 클릭할 때 최근 창으로 전환하지 않고 창 목록을 보여 줍니다.",
   "Badges": "알림 배지",
   "BadgesDescription": "읽지 않은 알림이 있는 앱에 표시기를 나타냅니다.",
   "Theme": "테마",

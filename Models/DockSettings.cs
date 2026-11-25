@@ -138,6 +138,7 @@ public sealed record DockSettings(
     AppLanguage Language = default,
     bool AnimationsEnabled = true,
     bool PreviewsEnabled = true,
+    bool ClickShowsWindowPicker = false,
     bool NotificationBadgesEnabled = true,
     AutoHideMode AutoHide = AutoHideMode.Disabled,
     // Legacy: migrated into the four per-surface styles on load, no longer edited by the UI.

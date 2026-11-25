@@ -178,6 +178,7 @@ public partial class SettingsWindow : Window
         SelectAlignment(_applied);
         AnimationsToggle.IsChecked = _applied.AnimationsEnabled;
         PreviewsToggle.IsChecked = _applied.PreviewsEnabled;
+        WindowPickerToggle.IsChecked = _applied.ClickShowsWindowPicker;
         SelectChoice(AutoHideBox, _applied.AutoHide.ToString());
         LoadSurfaceStyles(_applied);
         MagnificationToggle.IsChecked = _applied.MagnificationEnabled;
@@ -501,6 +502,7 @@ public partial class SettingsWindow : Window
                 ? contentAlignment : DockContentAlignment.Center,
             AnimationsEnabled = AnimationsToggle.IsChecked == true,
             PreviewsEnabled = PreviewsToggle.IsChecked == true,
+            ClickShowsWindowPicker = WindowPickerToggle.IsChecked == true,
             NotificationBadgesEnabled = _preferences.Current.NotificationBadgesEnabled,
             FocusModeEnabled = FocusModeToggle.IsChecked == true,
             AutoHide = Enum.TryParse<AutoHideMode>(Choice(AutoHideBox), out var autoHide) ? autoHide : AutoHideMode.Disabled,
@@ -2787,6 +2789,7 @@ public partial class SettingsWindow : Window
         SelectAlignment(settings);
         AnimationsToggle.IsChecked = settings.AnimationsEnabled;
         PreviewsToggle.IsChecked = settings.PreviewsEnabled;
+        WindowPickerToggle.IsChecked = settings.ClickShowsWindowPicker;
         SelectChoice(AutoHideBox, settings.AutoHide.ToString());
         LoadSurfaceStyles(settings);
         MagnificationToggle.IsChecked = settings.MagnificationEnabled;
@@ -2838,6 +2841,7 @@ public partial class SettingsWindow : Window
             AnimationsToggle.IsChecked = defaults.AnimationsEnabled;
             MagnificationToggle.IsChecked = defaults.MagnificationEnabled;
             PreviewsToggle.IsChecked = defaults.PreviewsEnabled;
+            WindowPickerToggle.IsChecked = defaults.ClickShowsWindowPicker;
             DynamicIslandEnabledToggle.IsChecked = defaults.DynamicIslandEnabled;
             SelectChoice(DynamicIslandVisibilityBox, defaults.DynamicIslandVisibility.ToString());
             DynamicIslandHideFullscreenToggle.IsChecked = defaults.DynamicIslandHideInFullscreen;

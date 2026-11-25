@@ -334,6 +334,14 @@
                                     </StackPanel>
                                 </DockPanel></Border>
                                 <Border Style="{StaticResource SettingsRow}"><DockPanel>
+                                    <CheckBox x:Name="WindowPickerToggle" DockPanel.Dock="Right" Style="{StaticResource SettingsSwitch}"
+                                              AutomationProperties.Name="{local:Loc WindowPicker}" AutomationProperties.HelpText="{local:Loc WindowPickerDescription}" />
+                                    <StackPanel VerticalAlignment="Center" Margin="0,0,18,0">
+                                        <TextBlock Text="{local:Loc WindowPicker}" Style="{StaticResource SettingsRowLabel}" />
+                                        <TextBlock Text="{local:Loc WindowPickerDescription}" Style="{StaticResource SettingsRowDescription}" />
+                                    </StackPanel>
+                                </DockPanel></Border>
+                                <Border Style="{StaticResource SettingsRow}"><DockPanel>
                                     <CheckBox x:Name="HardwareAccelerationToggle" DockPanel.Dock="Right" Style="{StaticResource SettingsSwitch}"
                                               AutomationProperties.Name="{local:Loc HardwareAcceleration}" AutomationProperties.HelpText="{local:Loc HardwareAccelerationDescription}" />
                                     <StackPanel VerticalAlignment="Center" Margin="0,0,18,0">

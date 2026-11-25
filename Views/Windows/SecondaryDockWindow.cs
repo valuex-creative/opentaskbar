@@ -31,6 +31,7 @@ public sealed class SecondaryDockWindow : Window
         public string Title { get; set; } = title;
         public bool IsForeground { get; set; } = isForeground;
         public System.Windows.Shapes.Ellipse Dot { get; } = dot;
+        public IReadOnlyList<TrackedWindow> Windows { get; set; } = [];
     }
 
     private readonly nint _monitor;
@@ -364,6 +365,7 @@ public sealed class SecondaryDockWindow : Window
                 var active = entry.Windows.FirstOrDefault(window => window.Handle == foreground) ?? first;
                 var isForeground = active.Handle == foreground;
                 slot.TargetHandle = active.Handle;
+                slot.Windows = entry.Windows;
                 if (!string.Equals(slot.Title, first.Title, StringComparison.Ordinal))
                 {
                     slot.Title = first.Title;
@@ -403,8 +405,18 @@ public sealed class SecondaryDockWindow : Window
             var cell = new StackPanel();
             cell.Children.Add(image);
             cell.Children.Add(dot);
-            var slot = new AppSlot(path, icon, active.Handle, first.Title, isForeground, dot);
-            var button = DockFlyout.FlatButton(cell, (_, _) => NativeWindowTracker.ToggleActivation(slot.TargetHandle, slot.Path), first.Title);
+            var slot = new AppSlot(path, icon, active.Handle, first.Title, isForeground, dot) { Windows = entry.Windows };
+            Button? button = null;
+            button = DockFlyout.FlatButton(cell, (_, _) =>
+            {
+                if (Application.Current?.MainWindow is MainWindow main
+                    && main.TryShowWindowPicker(slot.Windows, button!, slot.Icon, slot.Path, extraGapDips: 0))
+                {
+                    return;
+                }
+                NativeWindowTracker.ToggleActivation(slot.TargetHandle, slot.Path);
+            }, first.Title);
+            button.MouseLeave += (_, _) => (Application.Current?.MainWindow as MainWindow)?.ScheduleWindowPickerClose(button);
             button.Padding = new Thickness(6, 2, 6, 0);
             System.Windows.Automation.AutomationProperties.SetName(button, first.Title);
             _slots.Add(slot);

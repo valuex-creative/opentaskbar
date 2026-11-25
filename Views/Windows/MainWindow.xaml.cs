@@ -1276,16 +1276,52 @@ public partial class MainWindow : Window
         var foregroundAtPress = _foregroundAtAppPress;
         _foregroundAtAppPress = null;
         _previewCloseTimer.Stop();
-        _thumbnailPreview.Hide();
         AnimateActivationFeedback((Button)sender);
         var modifiers = System.Windows.Input.Keyboard.Modifiers;
         if (modifiers.HasFlag(System.Windows.Input.ModifierKeys.Shift))
         {
+            _thumbnailPreview.Hide();
             LaunchApp(app, elevated: modifiers.HasFlag(System.Windows.Input.ModifierKeys.Control));
             return;
         }
 
+        var extraGap = _preferences.Current.MagnificationEnabled
+            ? DockFisheyeLayout.ComputePreviewClearance(Profile.Icon, CurrentMagnificationMaxScale)
+            : 0;
+        if (TryShowWindowPicker(WindowsForApp(app), (Button)sender, app.Icon, app.ExecutablePath, extraGap)) return;
+
+        _thumbnailPreview.Hide();
         OpenDockApp(app, toggleIfForeground: true, foregroundAtPress);
+    }
+
+    /// <summary>
+    /// With "click shows window picker" on, a click on an app with several windows opens the thumbnail strip
+    /// so the user picks a window, instead of switching to the most recent one. Returns false when the click
+    /// should fall through to normal activation.
+    /// </summary>
+    internal bool TryShowWindowPicker(IReadOnlyList<TrackedWindow> windows, FrameworkElement anchor,
+        BitmapSource? icon, string executablePath, double extraGapDips)
+    {
+        if (!ShouldShowWindowPicker(_preferences.Current.ClickShowsWindowPicker, windows.Count)) return false;
+        _previewHoverTimer.Stop();
+        _pendingPreviewButton = null;
+        _previewCloseTimer.Stop();
+        // Re-showing for the anchor whose hover preview is already open keeps it in place without a second entrance.
+        var alreadyOpen = _thumbnailPreview.IsVisible && ReferenceEquals(_thumbnailPreview.Anchor, anchor);
+        BuildThumbnailOverrides(executablePath, windows, out var iconOverrides, out var labelOverrides);
+        _thumbnailPreview.ExtraGapDips = extraGapDips;
+        return _thumbnailPreview.ShowForWindows(windows, anchor, icon, allowEntrance: !alreadyOpen,
+            iconOverrides: iconOverrides, labelOverrides: labelOverrides);
+    }
+
+    internal static bool ShouldShowWindowPicker(bool enabled, int windowCount) => enabled && windowCount >= 2;
+
+    /// <summary>Starts the usual close delay when the pointer leaves a secondary-dock button that owns the picker.</summary>
+    internal void ScheduleWindowPickerClose(FrameworkElement anchor)
+    {
+        if (!_thumbnailPreview.IsVisible || !ReferenceEquals(_thumbnailPreview.Anchor, anchor)) return;
+        _previewCloseTimer.Stop();
+        _previewCloseTimer.Start();
     }
 
     private void DockApp_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)

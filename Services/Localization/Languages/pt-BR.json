@@ -69,6 +69,8 @@
   "AnimationsDescription": "Habilitar transições suaves no dock e menus suspensos.",
   "Previews": "Miniaturas de janelas",
   "PreviewsDescription": "Mostrar miniaturas ao passar o mouse sobre aplicativos abertos.",
+  "WindowPicker": "Escolher janela ao clicar",
+  "WindowPickerDescription": "Quando um app tem várias janelas, clicar no ícone as mostra para você escolher uma em vez de ir para a mais recente.",
   "Badges": "Distintivos de notificação",
   "BadgesDescription": "Exibir indicador quando houver alertas não lidos.",
   "Theme": "Tema",

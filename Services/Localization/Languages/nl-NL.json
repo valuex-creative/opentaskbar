@@ -69,6 +69,8 @@
   "AnimationsDescription": "Vloeiende overgangsanimaties inschakelen voor het dock en pop-ups.",
   "Previews": "Venstervoorbeelden",
   "PreviewsDescription": "Live voorbeelden tonen wanneer u de muis boven app-pictogrammen houdt.",
+  "WindowPicker": "Venster kiezen bij klikken",
+  "WindowPickerDescription": "Als een app meerdere vensters heeft, toont een klik op het pictogram ze allemaal zodat je er een kiest in plaats van naar het meest recente te gaan.",
   "Badges": "Meldingsbadges",
   "BadgesDescription": "Badges tonen op app-pictogrammen met ongelezen meldingen.",
   "Theme": "Thema",

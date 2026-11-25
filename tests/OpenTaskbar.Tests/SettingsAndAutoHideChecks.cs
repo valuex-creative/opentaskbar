@@ -144,7 +144,8 @@ internal static class SettingsAndAutoHideChecks
                 DockHotkey: HotkeyChoice.WinAltD,
                 Widgets: ["Clock", "Media", "SystemStats"],
                 InstalledWidgets: ["Clock", "Media", "SystemStats"],
-                ThemeApplicationIcons: false);
+                ThemeApplicationIcons: false,
+                ClickShowsWindowPicker: true);
             check(store.Save(initial) is null, "Initial custom dock settings must save cleanly.");
 
             var preferences = new ApplicationPreferences(store);
@@ -186,6 +187,16 @@ internal static class SettingsAndAutoHideChecks
             check(reloaded.Error is null, "Reloaded settings after SettingsWindow reopen must stay valid.");
             check(!reloaded.Settings.ThemeApplicationIcons,
                 "Disabling themed application icons must survive settings reopen.");
+            check(preferences.Current.ClickShowsWindowPicker && reloaded.Settings.ClickShowsWindowPicker,
+                "Choosing a window on click must survive settings reopen.");
+            check(!new DockSettings().ClickShowsWindowPicker,
+                "A dock click must keep switching to the most recent window by default.");
+            check(!MainWindow.ShouldShowWindowPicker(enabled: true, windowCount: 1)
+                  && !MainWindow.ShouldShowWindowPicker(enabled: true, windowCount: 0),
+                "An app with one window (or none) must activate or launch directly, never open the picker.");
+            check(MainWindow.ShouldShowWindowPicker(enabled: true, windowCount: 2)
+                  && !MainWindow.ShouldShowWindowPicker(enabled: false, windowCount: 3),
+                "Several windows must open the picker only when the option is on.");
             check(preferences.Current.AutoHide == AutoHideMode.Smart && reloaded.Settings.AutoHide == AutoHideMode.Smart,
                 "AutoHide preference must not reset when SettingsWindow is reopened.");
             check(preferences.Current.StartPlacement == StartButtonPlacement.End && reloaded.Settings.StartPlacement == StartButtonPlacement.End,

@@ -69,6 +69,8 @@
   "AnimationsDescription": "Açılış, gizlenme ve geçiş hareketleri.",
   "Previews": "Pencere önizlemeleri",
   "PreviewsDescription": "Simgenin üzerine geldiğinde açık pencereleri göster.",
+  "WindowPicker": "Tıklayınca pencere seç",
+  "WindowPickerDescription": "Bir uygulamanın birden fazla penceresi varsa simgesine tıklayınca son pencere yerine pencereler gösterilir, istediğini seçersin.",
   "HardwareAcceleration": "Donanım hızlandırma",
   "HardwareAccelerationDescription": "Daha akıcı animasyonlar; yaklaşık 100 MB daha fazla bellek kullanır. Uygulamak için dock'ı yeniden başlatın.",
   "Badges": "Bildirim göstergeleri",

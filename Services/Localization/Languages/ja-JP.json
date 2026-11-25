@@ -69,6 +69,8 @@
   "AnimationsDescription": "起動、非表示、切り替えの動き。",
   "Previews": "ウィンドウ プレビュー",
   "PreviewsDescription": "アイコンにマウスを重ねると、開いているウィンドウを表示します。",
+  "WindowPicker": "クリックでウィンドウを選択",
+  "WindowPickerDescription": "アプリに複数のウィンドウがある場合、アイコンをクリックすると最後のウィンドウに切り替える代わりに一覧を表示して選べます。",
   "Badges": "通知バッジ",
   "BadgesDescription": "Windows からの通知をアプリケーション アイコンに表示します。",
   "Theme": "テーマ",
